@@ -1,67 +1,53 @@
 <?php
+try {
+  $estaValido = require 'calcular.php';
 
-function error($msg)
-{
-  $myBankPage = "./";
-  echo "<h2>Erro: <span style='color: red;'>$msg</span></h2>";
-  echo "<a href='$myBankPage'>Voltar ao MyBank</a>";
-}
+  if (!$estaValido) return;
+} catch (Throwable $e) {
+  echo 'O arquivo calcular.php não foi encontrado.<br><br>';
+  echo $e->getMessage();
 
-$nome = $_POST['nome'];
-$ehcliente = $_POST['ehcliente'];
-$score = $_POST['score'];
-$valor = $_POST['valor'];
-$parcelas = $_POST['parcelas'];
-$seguro = $_POST['seguro'];
-
-if (!isset($nome) || !isset($ehcliente) ||  !isset($valor) || !isset($parcelas)) {
-  error('Uma ou mais variaveis não foram definidas');
   return;
 }
+?>
 
-if (!trim($nome)) {
-  error('Nome deve estar preenchido');
-  return;
-}
+<!DOCTYPE html>
+<html lang="pt-br">
 
-if ($ehcliente != 'sim' && $ehcliente != 'nao') {
-  error('"ehcliente" somente aceita os valores "sim" ou "nao"');
-  return;
-}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Resultado da simulação</title>
+</head>
 
-if ($ehcliente == 'nao' && !isset($score)) {
-  error('Uma ou mais variaveis não foram definidas');
-  return;
-}
+<body>
+  <div class="container">
+    <div class="title">
+      <h1>Seja bem-vindo(a) ao Mybank</h1>
+      <h1>Resultado da simulação</h1>
+    </div>
 
-if (!is_numeric($score)) {
-  error('"score" deve ser do tipo inteiro');
-  return;
-}
+    <div class="resultado">
+      <p>
+        Valor das parcelas: R$ <?= number_format($valorDaParcela, 2, ',', '.') ?>
+      </p>
+      <p>
+        Quantidade de parcelas: <?= $parcelas ?>
+      </p>
+      <p class="juros">
+        Taxa de juros: <?= $juros ?>%
+      </p>
+      <p>
+        Custo Efetivo Total: R$ <?= number_format($valor, 2, ',', '.') ?>
+      </p>
+    </div>
 
-if (!is_numeric($valor)) {
-  error('"valor" deve ser do tipo inteiro');
-  return;
-}
+    <p>Professor Júnior Gonçalves</p>
+  </div>
+</body>
 
-if (!is_numeric($parcelas)) {
-  error('"parcelas" deve ser do tipo inteiro');
-  return;
-}
-
-if ($ehcliente == 'nao' && $score < 0 || $score > 1000) {
-  error('"score" deve ser maior que ou igual 0 e menor ou igual a 1000');
-  return;
-}
-
-if ($valor < 100) {
-  error('"valor" deve ser maior que ou igual 100');
-  return;
-}
-
-if ($parcelas < 1 || $parcelas > 24) {
-  error('"score" deve ser maior que ou igual 1 e menor ou igual a 24');
-  return;
-}
-
-echo "Validado";
+</html>
