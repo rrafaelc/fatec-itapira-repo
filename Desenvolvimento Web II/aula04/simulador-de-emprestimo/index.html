@@ -10,6 +10,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
     <title>Simulador de empréstimo</title>
   </head>
   <body>
@@ -24,7 +25,8 @@
           Nome
           <input
             type="text"
-            name="name"
+            name="nome"
+            id="nome"
             placeholder="Escreva seu nome"
             required
           />
@@ -43,17 +45,38 @@
 
         <label for="score">
           Digite seu Serasa Score
-          <input type="text" name="score" placeholder="790" required />
+          <input
+            type="text"
+            name="score"
+            id="score"
+            placeholder="790"
+            required
+          />
         </label>
 
         <label for="valor">
           Valor do empréstimo
-          <input type="text" name="valor" placeholder="1000" required />
+          <input
+            type="text"
+            name="valor"
+            id="valor"
+            placeholder="1000"
+            required
+          />
         </label>
 
         <label for="parcelas">
           Quantidade de parcelas:
-          <input min="0" type="number" name="parcelas" value="0" />
+          <input
+            min="1"
+            max="24"
+            type="number"
+            name="parcelas"
+            id="parcelas"
+            value="1"
+            placeholder="1"
+            required
+          />
         </label>
 
         <label for="seguro">
