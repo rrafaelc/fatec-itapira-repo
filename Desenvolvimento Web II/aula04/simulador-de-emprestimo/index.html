@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Simulador de empréstimo</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">
+        <h1>Seja bem-vindo(a) ao Mybank</h1>
+        <h1>Simulador de empréstimo</h1>
+      </div>
+
+      <form action="resultado.php" method="post">
+        <label for="nome">
+          Nome
+          <input
+            type="text"
+            name="name"
+            placeholder="Escreva seu nome"
+            required
+          />
+        </label>
+
+        <label>
+          Já é nosso cliente?
+          <label for="sim">
+            <input type="radio" name="ehcliente" value="sim" id="sim" /> Sim
+          </label>
+          <label for="nao">
+            <input checked type="radio" name="ehcliente" value="nao" id="nao" />
+            Não
+          </label>
+        </label>
+
+        <label for="score">
+          Digite seu Serasa Score
+          <input type="text" name="score" placeholder="790" required />
+        </label>
+
+        <label for="valor">
+          Valor do empréstimo
+          <input type="text" name="valor" placeholder="1000" required />
+        </label>
+
+        <label for="parcelas">
+          Quantidade de parcelas:
+          <input min="0" type="number" name="parcelas" value="0" />
+        </label>
+
+        <label for="seguro">
+          <input type="checkbox" name="seguro" id="seguro" checked />
+          Desejo incluir seguro desemprego no valor de R$ 49,90
+        </label>
+
+        <button type="submit">Simular empréstimo!</button>
+      </form>
+
+      <p>Professor Júnior Gonçalves</p>
+    </div>
+  </body>
+</html>
