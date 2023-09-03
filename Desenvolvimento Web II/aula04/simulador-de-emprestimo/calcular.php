@@ -68,7 +68,7 @@ if ($valor < 100) {
 }
 
 if ($parcelas < 1 || $parcelas > 24) {
-  mostrarErro('"score" deve ser maior que ou igual 1 e menor ou igual a 24');
+  mostrarErro('"parcelas" deve ser maior que ou igual 1 e menor ou igual a 24');
   return false;
 }
 
