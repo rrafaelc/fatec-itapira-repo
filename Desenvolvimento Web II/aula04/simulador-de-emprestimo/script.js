@@ -6,6 +6,17 @@ const valor = form.querySelector('#valor');
 const parcelas = form.querySelector('#parcelas');
 const radioSim = form.querySelector('#sim');
 const radioNao = form.querySelector('#nao');
+const labelScore = document.querySelector('label[for="score"]');
+
+radioSim.addEventListener('click', () => {
+  score.value = 0;
+  labelScore.style.display = 'none';
+});
+
+radioNao.addEventListener('click', () => {
+  score.value = '';
+  labelScore.style.display = 'block';
+});
 
 const elementNumberValidator = ({
   element,
