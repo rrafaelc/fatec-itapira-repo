@@ -12,7 +12,7 @@ class Disciplina
       '" . $this->cargaHoraria . "'
     )";
 
-    $conexao = new PDO('mysql:host=127.0.0.1;dbname=sis-escolar', 'root', '');
+    $conexao = new PDO('mysql:host=127.0.0.1;dbname=sis-escolar2', 'root', '');
 
     $conexao->exec($sql);
 
@@ -23,7 +23,7 @@ class Disciplina
   {
     $sql = "SELECT * FROM tb_disciplina";
 
-    $conexao = new PDO('mysql:host=127.0.0.1;dbname=sis-escolar', 'root', '');
+    $conexao = new PDO('mysql:host=127.0.0.1;dbname=sis-escolar2', 'root', '');
 
     $resultado = $conexao->query($sql);
 
