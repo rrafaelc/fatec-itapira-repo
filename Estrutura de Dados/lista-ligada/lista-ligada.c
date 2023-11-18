@@ -27,9 +27,20 @@ void insereFinal()
   }
 }
 
-int removeFinal()
+void removeFinal()
 {
-  return 0;
+  int valor_removido;
+  if (inicio == NULL)
+  {
+    printf("\nLista Vazia\n");
+  }
+  else
+  {
+    aux = final;
+    valor_removido = aux->valor;
+    printf("\nValor removido: %i", valor_removido);
+    // free(aux);
+  }
 }
 
 void imprimir()
